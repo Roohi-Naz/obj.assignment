@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #personForm {
+                              background-color: rgb(11, 122, 141) ;
+
+               width: 10%;
+               text-align: center;
+               padding:5% ;
+               font-size: 2cap;
+               margin-left:40%;
+               margin-top: 5%;
+               color: white;
+
+        }
+        #personForm input{
+               background-color: rgb(11, 122, 141) ;
+               color: white;
+               border-color: white;
+
+   
+        }
+        #personForm select{
+                              background-color: rgb(11, 122, 141) ;
+
+               color: white;
+               border-color: white;
+
+
+   
+        }
+        #personForm button{
+                              background-color: rgb(11, 122, 141) ;
+
+               border-color: white;
+
+height: 6cap;
+width: 9cap;
+font-size:1cap;
+color: white;
+
+        }
+       
+    </style>
+</head>
+<body>
+    <form id="personForm">
+        <label for="name">Name</label>
+        <input type="text" id="name" required><br><br>
+        
+        <label for="gender">Gender</label><br>
+        <input type="radio" id="male" name="gender" value="male" required>
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="female" required>
+        <label for="female">Female</label><br><br>
+        
+        <label for="address">Address</label>
+        <input type="text" id="address" required><br><br>
+        
+        <label for="education">Education</label> <br>
+        <select id="education" required>
+            <option value="highschool">High School</option>
+            <option value="Bachelors">Bachelors</option>
+            <option value="PHD">PHD</option>
+            <option value="Masters">Masters</option>
+        </select><br><br>
+        
+        <label for="profession">Profession</label>
+        <select id="profession" required>
+            <option value="engineer">Engineer</option>
+            <option value="Doctor">Doctor</option>
+            <option value="Teacher">Teacher</option>
+            <option value="SalesMan">SalesMan</option>
+            <option value="BusinessMan">BusinessMan</option>
+            <option value="Student">Student</option>
+        </select><br><br>
+        
+        <button type="button" onclick="savePerson()">Save</button>
+    </form>
+  
+    
+    <script>
+    function Person(name, gender, address, education, profession) {
+        this.name = name;
+        this.gender = gender;
+        this.address = address;
+        this.education = education;
+        this.profession = profession;
+    }
+    
+    function savePerson() {
+        var name = document.getElementById('name').value;
+        var gender = document.querySelector('input[name="gender"]:checked').value;
+        var address = document.getElementById('address').value;
+        var education = document.getElementById('education').value;
+        var profession = document.getElementById('profession').value;
+        var person = new Person(name, gender, address, education, profession);
+        var people = JSON.parse(localStorage.getItem('people')) || [];
+        people.push(person);
+        localStorage.setItem('people', JSON.stringify(people));
+        alert('Person saved!');
+    }
+
+    </script>
+    
+    
+    </script>
+</body>
+</html>

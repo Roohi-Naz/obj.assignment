@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="qno 4.html"><h1>Question 4</h1>
+    </a>
+    <h1>Question 1</h1>
+    <p id="obj1"> </p>
+
+    <p id="obj"> </p>
+
+    <h1>Question 2</h1>
+
+    <p id="bio1"> </p>
+    <script>
+        var arrayItem = [
+            {name : "juice",
+             price : "50",
+             quantity : "3"
+            }, 
+
+            {name : "cookie",
+             price : "30",
+             quantity : "9"
+            },
+
+            {name : "shirt",
+             price : "880",
+             quantity : "1"
+            },
+
+            {name : "pen",
+             price : "10",
+             quantity : "2"
+            }
+        ] 
+        // var text = ""
+        // var totalAmount = 0
+        // arrayItem.forEach(function(item){
+        //     var itemTotal = item.price * item.quantity
+        // total = item.name + ":" + itemTotal
+        // totalAmount += itemTotal;
+  
+        //  })
+
+        var text = "";
+    var totalAmount = 0;
+
+    arrayItem.forEach(function(item) {
+        var itemTotal = item.price * item.quantity;
+        text += item.name + ": " + item.quantity + " x " + item.price + " = " + itemTotal + "<br>";
+        totalAmount += itemTotal;
+    });
+
+    text += "Total Amount: " + totalAmount;
+
+         document.getElementById("obj").innerHTML= text
+
+
+         var myJSON = JSON.stringify(arrayItem);
+         document.getElementById("obj1").innerHTML= myJSON
+
+console.log(arrayItem);
+
+// Create an object with properties name, email, password, age, 
+// gender, city, country.
+// Check if age and country properties exist in object or not.
+// Also check firstName and lastName properties in object.
+
+var bio = {
+    name : "Roohi",
+    email : "roohinaz700@gmail.com",
+    password : "abc123",
+    age : 20,
+    gender : "Female",
+    city : "Karachi",
+    country : "Pakistan"
+
+};
+
+var propertyExists1 = "age" in bio
+document.write (propertyExists1 ," for exisiting of age in bio <br>")
+
+var propertyExists2 = "country" in bio
+document.write (propertyExists2 ," for exisiting of country in bio <br>")
+
+var propertyExists3 = "firstName" in bio
+document.write (propertyExists3 ," for exisiting of First Name in bio <br>")
+
+var propertyExists4 = "LastName" in bio
+document.write (propertyExists4 ," for exisiting of Last Name in bio <br>")
+
+var bioJSON = JSON.stringify(bio);
+document.getElementById("bio1").innerHTML= bioJSON
+console.log(bio)
+ document.write("<h1>Question 3 <br> (Constructo/r)</h1> ")
+function Person (name , standard , age ,city ,section){
+    this.name = name;
+    this.standard = standard;
+    this.age = age;
+    this.city = city;
+    this.section = section;
+}
+var person1 = new Person("Ali",8,13,"Karachi","A")
+var person2 = new Person("Aisha",7,12,"Lahore","B")
+var person3 = new Person("Bisma",6,11,"Islamabad","C")
+var person4 = new Person("Asad",8,14,"Karachi","A")
+
+
+var p1 = JSON.stringify(person1);
+var p2 = JSON.stringify(person2);
+var p3 = JSON.stringify(person3);
+var p4 = JSON.stringify(person4);
+
+
+
+document.write(p1,"<br>")
+document.write(p2,"<br>")
+document.write(p3,"<br>")
+document.write(p4,"<br>")
+
+
+
+    </script>
+
+</body>
+</html>
